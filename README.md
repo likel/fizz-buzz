@@ -1,5 +1,5 @@
 # fizz-buzz
-This is first repository to test the features of GitHub.
+This is my first repository to test the features of GitHub.
 
 ## Task
 
