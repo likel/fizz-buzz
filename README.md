@@ -4,9 +4,9 @@ This is first repository to test the features of GitHub.
 ## Task
 
 The task, requested by potential software employers, is to write a program which prints numbers from 1 to 100 with the following conditions:
-    multiples of 3 print "Fizz" instead of the number
-    multiples of 5 print "Buzz" instead of the number
-    multiples of 3 & 5 print "FizzBuzz"
+* multiples of 3 print "Fizz" instead of the number
+* multiples of 5 print "Buzz" instead of the number
+* multiples of 3 & 5 print "FizzBuzz"
     
 ## Author
 
