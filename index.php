@@ -3,8 +3,8 @@
  * The index file, we can run our code from here
  *
  * A program which prints numbers from 1 to 100 with the following conditions:
- * 		multiples of 3 print "Fizz" instead of the number
- *   	multiples of 5 print "Buzz" instead of the number
+ *    multiples of 3 print "Fizz" instead of the number
+ *    multiples of 5 print "Buzz" instead of the number
  *    multiples of 3 & 5 print "FizzBuzz"
  *
  * @author Liam Kelly (likel)

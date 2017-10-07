@@ -4,7 +4,7 @@
  *
  * @author Liam Kelly (likel)
  * @created 07/10/2017
- * @version 1.0.0
+ * @version 1.0.1
  */
 use PHPUnit\Framework\TestCase;
 
@@ -42,6 +42,13 @@ final class ObjectTest extends TestCase {
         $this->assertArrayHasKey('min', $fizz_buzz_object->getRange());
         $this->assertArrayHasKey('max', $fizz_buzz_object->getRange());
         $this->assertEquals($fizz_buzz_object->getRange()['min'], -50);
+        $this->assertEquals($fizz_buzz_object->getRange()['max'], 100);
+
+        // Test a minimum range smaller than max range
+        $fizz_buzz_object = new Fizz\Buzz\Object(100, 10);
+        $this->assertArrayHasKey('min', $fizz_buzz_object->getRange());
+        $this->assertArrayHasKey('max', $fizz_buzz_object->getRange());
+        $this->assertEquals($fizz_buzz_object->getRange()['min'], 1);
         $this->assertEquals($fizz_buzz_object->getRange()['max'], 100);
     }
 
@@ -83,8 +90,50 @@ final class ObjectTest extends TestCase {
 
     /**
      * Test getting a singular value from a list
+     * Range is not necessary
      */
     public function testGetSingularValue() {
-        
+        $fizz_buzz_object = new Fizz\Buzz\Object();
+        $fizz_buzz_object->addReplacement(3, "Fizz");
+        $fizz_buzz_object->addReplacement(5, "Buzz");
+
+        // Correct values
+        $this->assertEquals($fizz_buzz_object->getSingularValue(3), "Fizz");
+        $this->assertEquals($fizz_buzz_object->getSingularValue(5), "Buzz");
+        $this->assertEquals($fizz_buzz_object->getSingularValue(15), "FizzBuzz");
+        $this->assertEquals($fizz_buzz_object->getSingularValue(2), 2);
+        $this->assertEquals($fizz_buzz_object->getSingularValue(-2), -2);
+        $this->assertEquals($fizz_buzz_object->getSingularValue(-3), "Fizz");
+
+        // Test incorrect value
+        $this->assertFalse($fizz_buzz_object->getSingularValue("a"));
+    }
+
+    /**
+     * Test generating the range string
+     */
+    public function testGenerate() {
+        $fizz_buzz_object = new Fizz\Buzz\Object(1, 15);
+        $fizz_buzz_object->addReplacement(3, "Fizz");
+        $fizz_buzz_object->addReplacement(5, "Buzz");
+
+        $expected = array(1, 2, "Fizz", 4, "Buzz", "Fizz", 7, 8, "Fizz", "Buzz", 11, "Fizz", 13, 14, "FizzBuzz");
+
+        // Test for empty sequences
+        $this->assertEmpty($fizz_buzz_object->getSequence());
+        $this->assertEquals((string)$fizz_buzz_object, "The sequence is empty.");
+
+        // Correct sequence
+        $fizz_buzz_object->generate();
+        $this->assertEquals(count($fizz_buzz_object->getSequence()), 15);
+        $this->assertEquals($fizz_buzz_object->getSequence(), $expected);
+        $this->assertEquals((string)$fizz_buzz_object, join(', ', $expected));
+
+        // Test return generate
+        $this->assertEquals($fizz_buzz_object->generate(true), join(', ', $expected));
+
+        // Test for 0 - 0 range
+        $fizz_buzz_object = new Fizz\Buzz\Object(0, 0);
+        $this->assertEquals((string)$fizz_buzz_object, "The sequence is empty.");
     }
 }
