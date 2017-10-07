@@ -4,7 +4,7 @@
  *
  * @author Liam Kelly (likel)
  * @created 07/10/2017
- * @version 1.0.1
+ * @version 1.0.2
  */
 namespace Fizz\Buzz;
 
@@ -36,8 +36,8 @@ class Object {
 		 * @return void
 		 */
 		public function setRange($range_min, $range_max) {
-				$this->range['min'] = is_numeric($range_min) ? $range_min : 1;
-				$this->range['max'] = is_numeric($range_max) ? $range_max : 100;
+				$this->range['min'] = is_numeric($range_min) && $range_min < $range_max ? $range_min : 1;
+				$this->range['max'] = is_numeric($range_max) && $range_min < $range_max ? $range_max : 100;
 		}
 
 		/**
