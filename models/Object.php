@@ -4,7 +4,7 @@
  *
  * @author Liam Kelly (likel)
  * @created 07/10/2017
- * @version 1.0.0
+ * @version 1.0.1
  */
 namespace Fizz\Buzz;
 
@@ -36,13 +36,8 @@ class Object {
 		 * @return void
 		 */
 		public function setRange($range_min, $range_max) {
-				if(is_numeric($range_min)) {
-						$this->range['min'] = $range_min;
-				}
-
-				if(is_numeric($range_min)) {
-						$this->range['max'] = $range_max;
-				}
+				$this->range['min'] = is_numeric($range_min) ? $range_min : 1;
+				$this->range['max'] = is_numeric($range_max) ? $range_max : 100;
 		}
 
 		/**
@@ -82,7 +77,7 @@ class Object {
 
 				foreach($this->replacement_list as $a_replacement) {
 						if(is_numeric($a_replacement['key'])) {
-								$string_value .= ($number % $a_replacement['key']) ? $a_replacement['value'] : "";
+								$string_value .= ($number % $a_replacement['key']) == 0 ? $a_replacement['value'] : "";
 						}
 				}
 
