@@ -14,11 +14,13 @@ use PHPUnit\Framework\TestCase;
 // Require the autoloader to load the Object when required
 require_once(__DIR__ . '/../src/autoload.php');
 
-final class ObjectTest extends TestCase {
+final class ObjectTest extends TestCase
+{
     /**
      * Test for the constructor outcomes
      */
-    public function testConstructRanges() {
+    public function testConstructRanges()
+    {
         // Test no range given
         $fizz_buzz_object = new Fizz\Buzz\Object();
         $this->assertArrayHasKey('min', $fizz_buzz_object->getRange());
@@ -58,7 +60,8 @@ final class ObjectTest extends TestCase {
     /**
      * Test setting the range after constructed
      */
-    public function testSetRange() {
+    public function testSetRange()
+    {
         $fizz_buzz_object = new Fizz\Buzz\Object(1, 100);
         $fizz_buzz_object->setRange(5, 50);
         $this->assertArrayHasKey('min', $fizz_buzz_object->getRange());
@@ -70,7 +73,8 @@ final class ObjectTest extends TestCase {
     /**
      * Test adding a replacement to the replacement list
      */
-    public function testAddReplacement() {
+    public function testAddReplacement()
+    {
         $fizz_buzz_object = new Fizz\Buzz\Object();
 
         // Test a correct replacement
@@ -95,7 +99,8 @@ final class ObjectTest extends TestCase {
      * Test getting a singular value from a list
      * Range is not necessary
      */
-    public function testGetSingularValue() {
+    public function testGetSingularValue()
+    {
         $fizz_buzz_object = new Fizz\Buzz\Object();
         $fizz_buzz_object->addReplacement(3, "Fizz");
         $fizz_buzz_object->addReplacement(5, "Buzz");
@@ -115,7 +120,8 @@ final class ObjectTest extends TestCase {
     /**
      * Test generating the range string
      */
-    public function testGenerate() {
+    public function testGenerate()
+    {
         $fizz_buzz_object = new Fizz\Buzz\Object(1, 15);
         $fizz_buzz_object->addReplacement(3, "Fizz");
         $fizz_buzz_object->addReplacement(5, "Buzz");
