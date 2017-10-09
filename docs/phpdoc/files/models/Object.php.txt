@@ -11,12 +11,11 @@
  */
 namespace Fizz\Buzz;
 
-class Object
-{
+class Object {
     // Helper variables used in the object
-    public $sequence = array();
-    public $replacement_list = array();
-    public $range = array();
+    var $sequence = array();
+    var $replacement_list = array();
+    var $range = array();
 
     /**
      * Construct the FizzBuzz object
@@ -26,8 +25,7 @@ class Object
      * @param int $range_max The maximum range for the sequence
      * @return void
      */
-    function __construct($range_min = 1, $range_max = 100)
-    {
+    function __construct($range_min = 1, $range_max = 100) {
         $this->setRange($range_min, $range_max);
     }
 
@@ -39,8 +37,7 @@ class Object
      * @param int $range_max The maximum range for the sequence
      * @return void
      */
-    public function setRange($range_min, $range_max)
-    {
+    public function setRange($range_min, $range_max) {
         $this->range['min'] = is_numeric($range_min) && $range_min < $range_max ? $range_min : 1;
         $this->range['max'] = is_numeric($range_max) && $range_min < $range_max ? $range_max : 100;
     }
@@ -53,8 +50,7 @@ class Object
      * @param string/int $text The replacement when $number is found
      * @return void
      */
-    public function addReplacement($number, $text)
-    {
+    public function addReplacement($number, $text) {
         if(is_numeric($number)) {
             $this->replacement_list[] = array(
                 "key" => $number,
@@ -74,8 +70,7 @@ class Object
      * @param int $number The number to check
      * @return string/int
      */
-    public function getSingularValue($number)
-    {
+    public function getSingularValue($number) {
         if(!is_numeric($number)) {
             return false;
         }
@@ -97,8 +92,7 @@ class Object
      * @param bool $return Decide if we return
      * @return string/int
      */
-    public function generate($return = false)
-    {
+    public function generate($return = false) {
         unset($this->sequence);
 
         for ($number = $this->range['min']; $number <= $this->range['max']; $number++) {
@@ -115,8 +109,7 @@ class Object
      *
      * @return array
      */
-    public function getSequence()
-    {
+    public function getSequence() {
         return $this->sequence;
     }
 
@@ -125,8 +118,7 @@ class Object
      *
      * @return array
      */
-    public function getRange()
-    {
+    public function getRange() {
         return $this->range;
     }
 
@@ -135,8 +127,7 @@ class Object
      *
      * @return array
      */
-    public function getReplacementList()
-    {
+    public function getReplacementList() {
         return $this->replacement_list;
     }
 
@@ -146,8 +137,8 @@ class Object
      *
      * @return string
      */
-    public function __toString()
-    {
+    public function __toString() {
         return !empty($this->sequence) ? join(', ', $this->sequence) : "The sequence is empty.";
     }
 }
+
