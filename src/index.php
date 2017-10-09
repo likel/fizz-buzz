@@ -7,10 +7,14 @@
  *    multiples of 5 print "Buzz" instead of the number
  *    multiples of 3 & 5 print "FizzBuzz"
  *
- * @author Liam Kelly (likel)
- * @created 07/10/2017
- * @version 1.0.0
+ * @package     fizz-buzz
+ * @author      Liam Kelly <https://github.com/likel>
+ * @copyright   2017 Liam Kelly
+ * @license     https://github.com/likel/fizz-buzz/blob/master/LICENSE GPL-3.0 License
+ * @link        https://github.com/likel/fizz-buzz
+ * @version     1.0.0
  */
+
 require_once('autoload.php');
 
 // Instantiate our Fizz Buzz object with our range

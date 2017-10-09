@@ -2,14 +2,17 @@
 /**
  * PHPUnit tests for models/Object.php
  *
- * @author Liam Kelly (likel)
- * @created 07/10/2017
- * @version 1.0.1
+ * @package     fizz-buzz
+ * @author      Liam Kelly <https://github.com/likel>
+ * @copyright   2017 Liam Kelly
+ * @license     https://github.com/likel/fizz-buzz/blob/master/LICENSE GPL-3.0 License
+ * @link        https://github.com/likel/fizz-buzz
+ * @version     1.0.1
  */
 use PHPUnit\Framework\TestCase;
 
 // Require the autoloader to load the Object when required
-require_once(__DIR__ . '/../autoload.php');
+require_once(__DIR__ . '/../src/autoload.php');
 
 final class ObjectTest extends TestCase {
     /**
