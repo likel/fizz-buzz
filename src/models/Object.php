@@ -2,9 +2,12 @@
 /**
  * The FizzBuzz object to handle the FizzBuzz functions
  *
- * @author Liam Kelly (likel)
- * @created 07/10/2017
- * @version 1.0.2
+ * @package     fizz-buzz
+ * @author      Liam Kelly <https://github.com/likel>
+ * @copyright   2017 Liam Kelly
+ * @license     https://github.com/likel/fizz-buzz/blob/master/LICENSE GPL-3.0 License
+ * @link        https://github.com/likel/fizz-buzz
+ * @version     1.0.2
  */
 namespace Fizz\Buzz;
 

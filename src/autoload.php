@@ -9,9 +9,12 @@
  *
  * This will attempt to load /path/to/project/models/Class/Model.php
  *
- * @author Liam Kelly (likel)
- * @created 07/10/2017
- * @version 1.0.0
+ * @package     fizz-buzz
+ * @author      Liam Kelly <https://github.com/likel>
+ * @copyright   2017 Liam Kelly
+ * @license     https://github.com/likel/fizz-buzz/blob/master/LICENSE GPL-3.0 License
+ * @link        https://github.com/likel/fizz-buzz
+ * @version     1.0.0
  */
 
 /**
@@ -29,7 +32,7 @@ spl_autoload_register(function ($class_name) {
 
     // Return if the requested class does not include the prefix
     if (strncmp($project_prefix, $class_name, $project_prefix_length) !== 0) {
-      return;
+        return;
     }
 
     // Replace the namespace prefix with the base directory, replace namespace
@@ -37,6 +40,6 @@ spl_autoload_register(function ($class_name) {
     $file = $models_dir . str_replace('\\', '/', $relative_class) . '.php';
 
     if (file_exists($file)) {
-      require_once($file);
+        require_once($file);
     }
 });
